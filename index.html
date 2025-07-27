@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h2>🛡️ Secure Notes</h2>
+        <input type="text" id="searchInput" placeholder="🔍 Search notes...">
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <div id="loginSection" class="login-container">
+        <h2>🔐 Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <label><input type="checkbox" id="rememberMe"> Remember me</label>
+        <button onclick="login()">Login</button>
+        <p id="loginMessage" class="message"></p>
+    </div>
+
+    <div id="appSection" style="display:none">
+        <div class="category-manager">
+            <h3>📁 Category Management</h3>
+            <div>
+                <input type="text" id="mainCategoryInput" placeholder="New Main Category">
+                <button onclick="addMainCategory()">Add Main</button>
+            </div>
+            <div id="mainCategoryList" style="margin: 10px 0;"></div>
+
+            <div>
+                <select id="mainCategorySelect" onchange="loadSubCategories()"></select>
+                <input type="text" id="subCategoryInput" placeholder="New Sub Category">
+                <button onclick="addSubCategory()">Add Sub</button>
+            </div>
+            <div id="subCategoryList" style="margin: 10px 0;"></div>
+        </div>
+
+        <div class="notes-manager">
+            <h3>📝 Notes</h3>
+            <select id="subCategorySelect" onchange="loadNotes()"></select>
+            <textarea id="noteInput" placeholder="Write your note..."></textarea>
+            <button onclick="saveNote()">Save Note</button>
+            <div id="notesList" style="margin-top: 15px;"></div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
